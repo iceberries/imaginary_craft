@@ -6,7 +6,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.Projectile;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib.animation.AnimatableManager;
 import software.bernie.geckolib.model.GeoModel;
 
 public class InTheNameOfLoveAndHateWeaponItem extends RemoteEgoWeaponGeoItem {
@@ -32,10 +31,6 @@ public class InTheNameOfLoveAndHateWeaponItem extends RemoteEgoWeaponGeoItem {
     super(itemProperties, egoWeaponBuilder, modPath);
   }
 
-  @Override
-  public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
-
-  }
 
   @Override
   protected void shootProjectile(LivingEntity shooterEntity, Projectile projectileEntity, int projectileIndex, float projectileVelocity, float projectileInaccuracy, float shootingAngle, @Nullable LivingEntity targetEntity) {

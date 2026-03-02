@@ -1,7 +1,7 @@
 package ctn.imaginarycraft.common.world.item.ego.weapon.melee.axe;
 
 import ctn.imaginarycraft.api.LcDamageType;
-import ctn.imaginarycraft.api.world.item.IEgoItem;
+import ctn.imaginarycraft.api.world.item.IEgoWeaponItem;
 import ctn.imaginarycraft.api.world.item.IMeleeEgoWeaponItem;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
@@ -16,7 +16,7 @@ public class AxeEgoWeaponItem extends AxeItem implements IMeleeEgoWeaponItem {
   private final Set<LcDamageType> canCauseLcDamageTypes;
 
   public AxeEgoWeaponItem(Tier tier, Properties itemProperties, Builder builder) {
-    super(tier, IEgoItem.add(itemProperties, builder));
+    super(tier, IEgoWeaponItem.add(itemProperties, builder));
     this.lcDamageType = builder.lcDamageType;
     this.canCauseLcDamageTypes = builder.canCauseLcDamageTypes;
   }

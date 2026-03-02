@@ -1,6 +1,6 @@
 package ctn.imaginarycraft.init.world;
 
-import ctn.imaginarycraft.init.util.DamageTypeRegisterUtil;
+import ctn.imaginarycraft.init.DamageTypeRegisterUtil;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.damagesource.DamageEffects;

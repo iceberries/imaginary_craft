@@ -22,7 +22,7 @@ public enum LcWeaponCategories implements WeaponCategory {
     this.translationKey = Component.translatable(translationKey);
     this.zhCnName = zhCnName;
     this.id = WeaponCategory.ENUM_MANAGER.assign(this);
-    ZhCn.clientAddI18nText(this.key, this.zhCnName);
+    ZhCn.addI18nText(this.key, this.zhCnName);
   }
 
   @Override

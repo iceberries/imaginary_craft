@@ -747,7 +747,7 @@ public final class EgoCurioItems {
                                                                    EgoCurioItem.Builder builder) {
     DeferredItem<T> deferredItem = REGISTRY.register(id, () -> item.apply(builder));
     type.addCurio(deferredItem);
-    ZhCn.clientAddI18nItemText(zhName, deferredItem);
+    ZhCn.addI18nItemText(zhName, deferredItem);
     return deferredItem;
   }
 

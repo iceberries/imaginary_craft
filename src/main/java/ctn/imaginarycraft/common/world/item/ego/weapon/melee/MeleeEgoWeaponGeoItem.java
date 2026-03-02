@@ -9,6 +9,7 @@ import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.client.GeoRenderProvider;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.animation.AnimatableManager;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
@@ -16,8 +17,8 @@ import java.util.function.Consumer;
 
 public abstract class MeleeEgoWeaponGeoItem extends MeleeEgoWeaponItem implements GeoItem {
   private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
-  private final GeoModel<MeleeEgoWeaponGeoItem> model;
-  private final @Nullable GeoModel<MeleeEgoWeaponGeoItem> guiModel;
+  protected final GeoModel<MeleeEgoWeaponGeoItem> model;
+  protected final @Nullable GeoModel<MeleeEgoWeaponGeoItem> guiModel;
 
   public MeleeEgoWeaponGeoItem(Properties itemProperties, IMeleeEgoWeaponItem.Builder egoWeaponBuilder, GeoModel<MeleeEgoWeaponGeoItem> geoModel, GeoModel<MeleeEgoWeaponGeoItem> guiModel) {
     super(itemProperties, egoWeaponBuilder);
@@ -30,6 +31,11 @@ public abstract class MeleeEgoWeaponGeoItem extends MeleeEgoWeaponItem implement
   }
 
   @Override
+  public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
+
+  }
+
+  @Override
   public void createGeoRenderer(@NotNull Consumer<GeoRenderProvider> rendererConsumer) {
     rendererConsumer.accept(new ModGeoItemRenderProvider<>(this.model, this.guiModel));
   }
@@ -37,13 +43,5 @@ public abstract class MeleeEgoWeaponGeoItem extends MeleeEgoWeaponItem implement
   @Override
   public AnimatableInstanceCache getAnimatableInstanceCache() {
     return cache;
-  }
-
-  public GeoModel<? extends MeleeEgoWeaponGeoItem> getModel() {
-    return model;
-  }
-
-  public @Nullable GeoModel<? extends MeleeEgoWeaponGeoItem> getGuiModel() {
-    return guiModel;
   }
 }

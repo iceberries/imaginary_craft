@@ -18,5 +18,4 @@ public final class CommandRegistry {
     CommandDispatcher<CommandSourceStack> dispatcher = event.getDispatcher();
     RationalityCommands.processRationality(dispatcher);
   }
-
 }

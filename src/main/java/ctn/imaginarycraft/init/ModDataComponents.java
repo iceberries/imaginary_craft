@@ -3,7 +3,6 @@ package ctn.imaginarycraft.init;
 import ctn.imaginarycraft.api.LcDamageType;
 import ctn.imaginarycraft.common.components.ItemVirtueUsageReq;
 import ctn.imaginarycraft.core.ImaginaryCraft;
-import ctn.imaginarycraft.init.util.DataComponentsRegisterUtil;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.neoforged.neoforge.registries.DeferredRegister;

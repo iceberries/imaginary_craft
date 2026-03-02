@@ -2,7 +2,6 @@ package ctn.imaginarycraft.common.world.item.ego.weapon.melee.fist;
 
 import ctn.imaginarycraft.api.world.item.IMeleeEgoWeaponItem;
 import ctn.imaginarycraft.common.world.item.ego.weapon.melee.MeleeEgoWeaponGeoItem;
-import software.bernie.geckolib.animation.AnimatableManager;
 import software.bernie.geckolib.model.GeoModel;
 
 public class FistEgoWeaponItem extends MeleeEgoWeaponGeoItem {
@@ -13,10 +12,5 @@ public class FistEgoWeaponItem extends MeleeEgoWeaponGeoItem {
 
   public FistEgoWeaponItem(Properties itemProperties, IMeleeEgoWeaponItem.Builder egoWeaponBuilder, String modPath) {
     super(itemProperties, egoWeaponBuilder, modPath);
-  }
-
-  @Override
-  public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
-
   }
 }

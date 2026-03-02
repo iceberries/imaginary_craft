@@ -55,5 +55,4 @@ public abstract class RationalityModifyEvent extends RationalityEvent {
       return newValue;
     }
   }
-
 }

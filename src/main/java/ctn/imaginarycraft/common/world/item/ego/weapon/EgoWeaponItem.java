@@ -1,7 +1,6 @@
 package ctn.imaginarycraft.common.world.item.ego.weapon;
 
 import ctn.imaginarycraft.api.LcDamageType;
-import ctn.imaginarycraft.api.world.item.IEgoItem;
 import ctn.imaginarycraft.api.world.item.IEgoWeaponItem;
 import ctn.imaginarycraft.core.capability.item.IItemLcDamageType;
 import ctn.imaginarycraft.core.capability.item.IItemUsageReq;
@@ -24,7 +23,7 @@ public abstract class EgoWeaponItem extends Item implements IEgoWeaponItem, IIte
   private final Set<LcDamageType> canCauseLcDamageTypes;
 
   public EgoWeaponItem(Properties itemProperties, Builder<?> builder) {
-    super(IEgoItem.add(itemProperties, builder));
+    super(IEgoWeaponItem.add(itemProperties, builder));
     this.lcDamageType = builder.lcDamageType;
     this.canCauseLcDamageTypes = builder.canCauseLcDamageTypes;
   }

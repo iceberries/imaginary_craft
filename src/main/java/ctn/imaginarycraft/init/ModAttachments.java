@@ -7,7 +7,6 @@ import ctn.imaginarycraft.api.virtue.VirtueJustice;
 import ctn.imaginarycraft.api.virtue.VirtuePrudence;
 import ctn.imaginarycraft.api.virtue.VirtueTemperance;
 import ctn.imaginarycraft.core.ImaginaryCraft;
-import ctn.imaginarycraft.init.util.AttachmentRegisterUtil;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.neoforge.registries.DeferredHolder;

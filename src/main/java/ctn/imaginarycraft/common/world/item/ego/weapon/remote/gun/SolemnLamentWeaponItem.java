@@ -30,7 +30,6 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib.animation.AnimatableManager;
 import software.bernie.geckolib.model.GeoModel;
 
 public class SolemnLamentWeaponItem extends GunEgoWeaponItem {
@@ -56,10 +55,6 @@ public class SolemnLamentWeaponItem extends GunEgoWeaponItem {
     super(itemProperties, egoWeaponBuilder, modPath);
   }
 
-  @Override
-  public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
-
-  }
 
   @Override
   public boolean gunShoot(@NotNull Player playerEntity, @NotNull ItemStack itemStack, @NotNull InteractionHand handUsed) {

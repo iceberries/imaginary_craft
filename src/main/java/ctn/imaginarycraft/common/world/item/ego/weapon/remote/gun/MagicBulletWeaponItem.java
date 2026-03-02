@@ -14,7 +14,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
-import software.bernie.geckolib.animation.AnimatableManager;
 import software.bernie.geckolib.model.GeoModel;
 
 // TODO 禁止放到副手
@@ -39,10 +38,6 @@ public class MagicBulletWeaponItem extends GunEgoWeaponItem {
     super(itemProperties, egoWeaponBuilder, modPath);
   }
 
-  @Override
-  public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
-
-  }
 
   @Override
   public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level world, Player playerEntity, @NotNull InteractionHand handUsed) {
@@ -94,17 +89,18 @@ public class MagicBulletWeaponItem extends GunEgoWeaponItem {
   public int gunShootExecuteTick(@NotNull Player player, @NotNull ItemStack stack, @NotNull InteractionHand handUsed) {
     return super.gunShootExecuteTick(player, stack, handUsed);
   }
+
   @Override
   protected ProjectileFactory getProjectileFactory() {
-      return (level, shooter, itemStack, handUsed) -> {
-          MagicBulletEntity magicBullet = new MagicBulletEntity(level, shooter);
-          float damage = getDamage(shooter, itemStack, handUsed);
-          magicBullet.setDamage(damage);
+    return (level, shooter, itemStack, handUsed) -> {
+      MagicBulletEntity magicBullet = new MagicBulletEntity(level, shooter);
+      float damage = getDamage(shooter, itemStack, handUsed);
+      magicBullet.setDamage(damage);
 
-          // 添加默认穿透标签，使其可以穿墙
-          PiercingUtil.setPiercingDefault(magicBullet, damage);
+      // 添加默认穿透标签，使其可以穿墙
+      PiercingUtil.setPiercingDefault(magicBullet, damage);
 
-          return magicBullet;
-      };
+      return magicBullet;
+    };
   }
 }

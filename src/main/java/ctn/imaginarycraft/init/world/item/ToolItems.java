@@ -42,7 +42,7 @@ public final class ToolItems {
                                                            Function<Item.Properties, ? extends I> item,
                                                            Item.Properties properties) {
     DeferredItem<I> deferredItem = REGISTRY.registerItem(name, item, properties);
-    ZhCn.clientAddI18nItemText(zhName, deferredItem);
+    ZhCn.addI18nItemText(zhName, deferredItem);
     return deferredItem;
   }
 }

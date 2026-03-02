@@ -1,4 +1,4 @@
-package ctn.imaginarycraft.init.util;
+package ctn.imaginarycraft.init;
 
 import ctn.imaginarycraft.core.ImaginaryCraft;
 import net.minecraft.core.Holder;

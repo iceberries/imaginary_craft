@@ -57,18 +57,18 @@ public class MagicBulletEntity extends ModBulletEntity {
   /**
    * 创建带有穿透效果的魔法子弹
    *
-   * @param level 世界
-   * @param shooter 射击者
-   * @param damage 伤害
-   * @param target 目标
-   * @param maxPierce 最大穿透数（-1表示无限）
-   * @param damageDecay 伤害衰减率（0-1）
+   * @param level           世界
+   * @param shooter         射击者
+   * @param damage          伤害
+   * @param target          目标
+   * @param maxPierce       最大穿透数（-1表示无限）
+   * @param damageDecay     伤害衰减率（0-1）
    * @param wallPassThrough 是否穿墙
    * @return 魔法子弹实体
    */
   public static MagicBulletEntity createWithPiercing(@Nonnull Level level, @Nonnull LivingEntity shooter,
-                                                      @Nonnegative float damage, @Nonnull LivingEntity target,
-                                                      int maxPierce, float damageDecay, boolean wallPassThrough) {
+                                                     @Nonnegative float damage, @Nonnull LivingEntity target,
+                                                     int maxPierce, float damageDecay, boolean wallPassThrough) {
     MagicBulletEntity entity = new MagicBulletEntity(level, shooter);
     entity.setOwner(shooter);
     entity.setDamage(damage);
@@ -76,10 +76,10 @@ public class MagicBulletEntity extends ModBulletEntity {
 
     // 添加穿透标签
     PierceData config = new PierceData()
-        .maxPierce(maxPierce)
-        .damageDecay(damageDecay)
-        .wallPassThrough(wallPassThrough)
-        .originalDamage(damage);
+      .maxPierce(maxPierce)
+      .damageDecay(damageDecay)
+      .wallPassThrough(wallPassThrough)
+      .originalDamage(damage);
 
     PiercingUtil.addPiercingTag(entity, config);
 
@@ -135,32 +135,32 @@ public class MagicBulletEntity extends ModBulletEntity {
 
   @Override
   public void tick() {
-        // 每tick强制同步noPhysics
-        var config = PiercingUtil.getPiercingConfig(this);
-        if (config != null && config.isWallPassThroughEnabled()) {
-          this.noPhysics = true;
-        }
-        this.Flying_Ticks++;
-
-        if (this.damage < 0.0f || this.Flying_Ticks > MAX_FLIGHT_TICK) {
-            this.setDead();
-            return;
-        }
-
-        var oPos = this.getOnPos();
-
-        // 如果有穿透标签，事件监听器会自动处理穿透逻辑
-        // 这里只保留追踪逻辑
-        super.tick();
-        if(!Objects.isNull(this.target)){
-          var nPos = this.getOnPos();
-          var tPos = this.target.getOnPos();
-
-          if (oPos.distSqr(tPos) > nPos.distSqr(tPos)) {
-              this.correctTrajectory();
-          }
-        }
+    // 每tick强制同步noPhysics
+    var config = PiercingUtil.getPiercingConfig(this);
+    if (config != null && config.isWallPassThroughEnabled()) {
+      this.noPhysics = true;
     }
+    this.Flying_Ticks++;
+
+    if (this.damage < 0.0f || this.Flying_Ticks > MAX_FLIGHT_TICK) {
+      this.setDead();
+      return;
+    }
+
+    var oPos = this.getOnPos();
+
+    // 如果有穿透标签，事件监听器会自动处理穿透逻辑
+    // 这里只保留追踪逻辑
+    super.tick();
+    if (!Objects.isNull(this.target)) {
+      var nPos = this.getOnPos();
+      var tPos = this.target.getOnPos();
+
+      if (oPos.distSqr(tPos) > nPos.distSqr(tPos)) {
+        this.correctTrajectory();
+      }
+    }
+  }
 
   @Override
   protected void onHitBlock(BlockHitResult result) {

@@ -4,7 +4,6 @@ import ctn.imaginarycraft.common.world.item.ego.weapon.remote.RemoteEgoWeaponGeo
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.Projectile;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib.animation.AnimatableManager;
 import software.bernie.geckolib.model.GeoModel;
 
 public class FeatherOfHonorWeaponItem extends RemoteEgoWeaponGeoItem {
@@ -15,11 +14,6 @@ public class FeatherOfHonorWeaponItem extends RemoteEgoWeaponGeoItem {
 
   public FeatherOfHonorWeaponItem(Properties itemProperties, Builder egoWeaponBuilder, String modPath) {
     super(itemProperties, egoWeaponBuilder, modPath);
-  }
-
-  @Override
-  public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
-
   }
 
   @Override

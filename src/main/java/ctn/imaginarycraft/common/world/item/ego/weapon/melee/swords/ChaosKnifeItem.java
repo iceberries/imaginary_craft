@@ -6,12 +6,15 @@ import ctn.imaginarycraft.core.ImaginaryCraft;
 import ctn.imaginarycraft.core.capability.item.IItemLcDamageType;
 import ctn.imaginarycraft.init.ModDataComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.common.SimpleTier;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -24,7 +27,7 @@ public class ChaosKnifeItem extends SwordsEgoWeaponItem implements IItemLcDamage
   private static final LcDamageType.Component DEFAULT_COMPONENT = new LcDamageType.Component(LcDamageType.PHYSICS, LcDamageType.values());
 
   public ChaosKnifeItem(Properties itemProperties, IMeleeEgoWeaponItem.Builder builder) {
-    super(itemProperties.component(ModDataComponents.LC_DAMAGE_TYPE.get(), new LcDamageType.Component(LcDamageType.PHYSICS, LcDamageType.values())), builder);
+    super(new SimpleTier(BlockTags.INCORRECT_FOR_IRON_TOOL, 0, builder.attackSpeed, builder.weaponDamage, 5, Ingredient::of), itemProperties.component(ModDataComponents.LC_DAMAGE_TYPE.get(), new LcDamageType.Component(LcDamageType.PHYSICS, LcDamageType.values())), builder);
   }
 
   @Override

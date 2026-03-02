@@ -10,5 +10,4 @@ public class RoughAndFineGeoArmorModel<T extends GeoAnimatable> extends ModGeoAr
   public RoughAndFineGeoArmorModel(String modelPath, String textureName, String animationsName) {
     super(modelPath, textureName, animationsName);
   }
-
 }

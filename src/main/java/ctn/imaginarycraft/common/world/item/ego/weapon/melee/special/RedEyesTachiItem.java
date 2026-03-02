@@ -101,7 +101,8 @@ public class RedEyesTachiItem extends MeleeEgoWeaponGeoItem {
 
   @Override
   public void createGeoRenderer(@NotNull Consumer<GeoRenderProvider> rendererConsumer) {
-    rendererConsumer.accept(new ModGeoItemRenderProvider<>((GeoModel<RedEyesTachiItem>) this.getModel(), (GeoModel<RedEyesTachiItem>) this.getGuiModel(), RedEyesTachiItemWeaponRenderer::new));
+    rendererConsumer.accept(new ModGeoItemRenderProvider<>((GeoModel<RedEyesTachiItem>) (GeoModel<?>) model, (GeoModel<RedEyesTachiItem>) (GeoModel<?>) guiModel, RedEyesTachiItemWeaponRenderer::new));
+//    ItemRenderer
   }
 
   private AnimationController<RedEyesTachiItem> getController(ItemStack stack, ServerLevel level) {

@@ -38,7 +38,9 @@ public abstract class RemoteEgoWeaponGeoItem extends RemoteEgoWeaponItem impleme
   }
 
   @Override
-  public abstract void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar);
+  public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
+
+  }
 
   @Override
   public AnimatableInstanceCache getAnimatableInstanceCache() {

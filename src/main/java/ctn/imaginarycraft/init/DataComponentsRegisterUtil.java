@@ -1,7 +1,6 @@
-package ctn.imaginarycraft.init.util;
+package ctn.imaginarycraft.init;
 
 import com.mojang.serialization.Codec;
-import ctn.imaginarycraft.init.ModDataComponents;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;

@@ -1,7 +1,6 @@
-package ctn.imaginarycraft.init.util;
+package ctn.imaginarycraft.init;
 
 import ctn.imaginarycraft.core.ImaginaryCraft;
-import ctn.imaginarycraft.init.ModSoundEvents;
 import net.minecraft.sounds.SoundEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 

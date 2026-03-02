@@ -11,6 +11,7 @@
     "LivingDamageEvent$PostMixin",
     "LivingEntityMixin",
     "LocalPlayerPatchMixin",
+    "ModelFileMixin",
     "PlayerMixin",
     "WeaponTypeReloadListenerMixin",
     "client.ModelBuilderMixin"
@@ -25,6 +26,7 @@
     "ItemsPreferenceScreenMixin",
     "client.FontMixin",
     "client.GuiMixin",
+    "client.ItemRendererMixin",
     "client.KeyMappingMixin"
   ],
   "mixinextras": {

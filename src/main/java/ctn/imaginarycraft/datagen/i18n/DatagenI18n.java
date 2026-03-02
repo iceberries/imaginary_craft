@@ -10,6 +10,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageType;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.item.Item;
@@ -50,7 +51,11 @@ public abstract class DatagenI18n extends LanguageProvider {
     map.forEach((holder, zhName) -> add(holder.get(), zhName));
   }
 
-  protected void addEntityList(Map<Supplier<EntityType<?>>, String> map) {
+  protected void addEntityList(Map<Supplier<? extends EntityType<?>>, String> map) {
+    map.forEach((holder, zhName) -> add(holder.get(), zhName));
+  }
+
+  protected void addMobEffect(Map<Supplier<? extends MobEffect>, String> map) {
     map.forEach((holder, zhName) -> add(holder.get(), zhName));
   }
 
@@ -107,5 +112,4 @@ public abstract class DatagenI18n extends LanguageProvider {
   protected void addPlayerDeathMessage(ResourceKey<DamageType> damageType, String name) {
     add("death.attack." + damageType.location().getPath() + ".player", name);
   }
-
 }

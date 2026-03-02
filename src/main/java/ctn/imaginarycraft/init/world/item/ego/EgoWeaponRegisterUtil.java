@@ -64,7 +64,7 @@ public abstract class EgoWeaponRegisterUtil {
     LcLevelUtil.addItemLcLevelCapability(lcLevelType, deferredItem);
     ImaginaryCraftConstants.EGO_WEAPON.add(deferredItem);
     templateType.addItem(deferredItem);
-    ZhCn.clientAddI18nItemText(zhName, deferredItem);
+    ZhCn.addI18nItemText(zhName, deferredItem);
     return deferredItem;
   }
 
@@ -341,14 +341,20 @@ public abstract class EgoWeaponRegisterUtil {
 
     private <I extends Item & IMeleeEgoWeaponItem> BiFunction<Item.Properties, IMeleeEgoWeaponItem.Builder, I> getMeleeItemFactory() {
       return switch (templateType) {
-        case AXE ->
-          (p, b) -> (I) new AxeEgoWeaponGeoItem(getSimpleTier(weaponBuilder), p, b, modelPath);
-        case FIST -> (p, b) -> (I) new FistEgoWeaponItem(p, b, modelPath);
-        case HAMMER -> (p, b) -> (I) new HammerEgoWeaponItem(p, b, modelPath);
-        case KNIFE -> (p, b) -> (I) new KnifeEgoWeaponItem(p, b, modelPath);
-        case MACE -> (p, b) -> (I) new MaceEgoWeaponItem(p, b, modelPath);
-        case SPEAR -> (p, b) -> (I) new SpearEgoWeaponItem(p, b, modelPath);
-        case SWORDS -> (p, b) -> (I) new SwordsEgoWeaponGeoItem(p, b, modelPath);
+        case AXE -> (p, b) ->
+          (I) new AxeEgoWeaponGeoItem(getSimpleTier(weaponBuilder), p, b, modelPath);
+        case FIST -> (p, b) ->
+          (I) new FistEgoWeaponItem(p, b, modelPath);
+        case HAMMER -> (p, b) ->
+          (I) new HammerEgoWeaponItem(p, b, modelPath);
+        case KNIFE -> (p, b) ->
+          (I) new KnifeEgoWeaponItem(p, b, modelPath);
+        case MACE -> (p, b) ->
+          (I) new MaceEgoWeaponItem(p, b, modelPath);
+        case SPEAR -> (p, b) ->
+          (I) new SpearEgoWeaponItem(p, b, modelPath);
+        case SWORDS -> (p, b) ->
+          (I) new SwordsEgoWeaponGeoItem(getSimpleTier(weaponBuilder), p, b, modelPath);
       };
     }
 

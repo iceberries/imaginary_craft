@@ -1,7 +1,6 @@
-package ctn.imaginarycraft.init.util;
+package ctn.imaginarycraft.init;
 
 import com.mojang.serialization.MapCodec;
-import ctn.imaginarycraft.init.ModParticleTypes;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;

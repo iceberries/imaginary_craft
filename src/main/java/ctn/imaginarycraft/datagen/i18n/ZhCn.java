@@ -14,6 +14,7 @@ import ctn.imaginarycraft.init.world.item.ego.EgoCurioItems;
 import ctn.imaginarycraft.linkage.jade.LivingEntityVulnerable;
 import ctn.imaginarycraft.linkage.jade.ModPlugin;
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.neoforged.fml.loading.FMLEnvironment;
@@ -25,7 +26,8 @@ import java.util.function.Supplier;
 
 public final class ZhCn extends DatagenI18n {
   private static final Map<Supplier<? extends Item>, String> ITEMS = new HashMap<>();
-  private static final Map<Supplier<EntityType<?>>, String> ENTITY = new HashMap<>();
+  private static final Map<Supplier<? extends EntityType<?>>, String> ENTITY = new HashMap<>();
+  private static final Map<Supplier<? extends MobEffect>, String> MOB_EFFECT = new HashMap<>();
   private static final Map<String, String> MAP = new HashMap<>();
 
   public ZhCn(final PackOutput output) {
@@ -37,6 +39,7 @@ public final class ZhCn extends DatagenI18n {
     add("pack.imaginarycraft.description", "异想工艺");
     addItemList(ITEMS);
     addEntityList(ENTITY);
+    addMobEffect(MOB_EFFECT);
     MAP.forEach(this::add);
     addJadePlugin(ModPlugin.ENTITY_LC_LEVEL, "生物等级");
     addJadePlugin(ModPlugin.BLOCK_LC_LEVEL, "方块等级");
@@ -170,21 +173,27 @@ public final class ZhCn extends DatagenI18n {
     //endregion
   }
 
-  public static void clientAddI18nText(String zhCn, String key) {
+  public static void addI18nText(String zhCn, String key) {
     if (!FMLEnvironment.production) {
       ZhCn.MAP.put(key, zhCn);
     }
   }
 
-  public static void clientAddI18nItemText(String zhName, Supplier<? extends Item> deferredItem) {
+  public static void addI18nItemText(String zhName, Supplier<? extends Item> deferredItem) {
     if (!FMLEnvironment.production) {
       ZhCn.ITEMS.put(deferredItem, zhName);
     }
   }
 
-  public static void clientAddI18nEntityTypeText(String zhName, Supplier<EntityType<?>> entityType) {
+  public static void addI18nEntityTypeText(String zhName, Supplier<? extends EntityType<?>> entityType) {
     if (!FMLEnvironment.production) {
       ZhCn.ENTITY.put(entityType, zhName);
+    }
+  }
+
+  public static void addI18nMobEffectText(String zhName, Supplier<? extends MobEffect> entityType) {
+    if (!FMLEnvironment.production) {
+      ZhCn.MOB_EFFECT.put(entityType, zhName);
     }
   }
 }

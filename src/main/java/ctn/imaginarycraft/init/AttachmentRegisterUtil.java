@@ -1,6 +1,5 @@
-package ctn.imaginarycraft.init.util;
+package ctn.imaginarycraft.init;
 
-import ctn.imaginarycraft.init.ModAttachments;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.neoforge.attachment.AttachmentType;

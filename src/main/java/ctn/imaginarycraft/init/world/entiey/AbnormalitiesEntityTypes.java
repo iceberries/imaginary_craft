@@ -73,16 +73,15 @@ public final class AbnormalitiesEntityTypes {
   private static <T extends Entity> DeferredHolder<EntityType<?>, EntityType<T>> register(String name, String zhName,
                                                                                           LcLevelType lcLevelType,
                                                                                           Supplier<EntityType<T>> sup) {
-    DeferredHolder<EntityType<?>, EntityType<T>> register = REGISTRY.register(name, sup);
-    Supplier<EntityType<?>> supplier = (Supplier<EntityType<?>>) (Object) register;
+    DeferredHolder<EntityType<?>, EntityType<T>> holder = REGISTRY.register(name, sup);
     (switch (lcLevelType) {
       case ZAYIN -> CapabilityRegistry.ENTITY_ZAYIN;
       case TETH -> CapabilityRegistry.ENTITY_TETH;
       case HE -> CapabilityRegistry.ENTITY_HE;
       case WAW -> CapabilityRegistry.ENTITY_WAW;
       case ALEPH -> CapabilityRegistry.ENTITY_ALEPH;
-    }).add(supplier);
-    ZhCn.clientAddI18nEntityTypeText(zhName, supplier);
-    return register;
+    }).add((Supplier<EntityType<?>>) (Object) holder);
+    ZhCn.addI18nEntityTypeText(zhName, holder);
+    return holder;
   }
 }

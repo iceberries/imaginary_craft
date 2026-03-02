@@ -1,6 +1,7 @@
 package ctn.imaginarycraft.common.world.item.ego.weapon.remote.crossbow;
 
 import ctn.imaginarycraft.api.LcDamageType;
+import ctn.imaginarycraft.api.world.item.IEgoWeaponItem;
 import ctn.imaginarycraft.api.world.item.IRemoteEgoWeaponItem;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
@@ -23,7 +24,7 @@ public class CrossbowEgoWeaponItem extends CrossbowItem implements IRemoteEgoWea
   private final @Nullable CreateProjectile<? extends Projectile> createProjectile;
 
   public CrossbowEgoWeaponItem(Properties itemProperties, Builder builder) {
-    super(itemProperties);
+    super(IEgoWeaponItem.add(itemProperties, builder));
     this.attackDistance = builder.attackDistance;
     this.createProjectile = builder.createProjectile;
   }
